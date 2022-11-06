@@ -22,7 +22,7 @@ requirements:
     - numpy                                  # [build_platform != target_platform and py>=310]
     - {{ compiler('cxx') }}
   host:
-    - cython >=0.29.21,<3.0
+    - cython >=0.29.32,<3.0
     - numpy 1.20  # [py<310]
     - numpy       # [py>=310]
     - setuptools >=46.4.0
