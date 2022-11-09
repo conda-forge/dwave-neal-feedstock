@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/dwave-neal-{{ version }}.tar.gz
-  sha256: 6eabf37a7ccbed7f6145567351673a07f9ba5482a2500872c840b27089e0ff3e
+  url: https://github.com/dwavesystems/dwave-neal/archive/refs/tags/{{ version }}.tar.gz
+  sha256: eb1d13e2945a51817fb58c0851b63758c3370e9d8396d0d2ff30214062b0a18b
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
 
 requirements:
   build:
