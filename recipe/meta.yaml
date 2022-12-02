@@ -1,5 +1,5 @@
 {% set name = "dwave-neal" %}
-{% set version = "0.5.9" %}
+{% set version = "0.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,32 +7,25 @@ package:
 
 source:
   url: https://github.com/dwavesystems/dwave-neal/archive/refs/tags/{{ version }}.tar.gz
-  sha256: eb1d13e2945a51817fb58c0851b63758c3370e9d8396d0d2ff30214062b0a18b
+  sha256: 410344e750ca0525cbd89df511e6c992afc2f21c08165b9faa510df304a3da81
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 4
+  number: 0
 
 requirements:
   build:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
-    - numpy 1.20                             # [build_platform != target_platform and py<310]
-    - numpy                                  # [build_platform != target_platform and py>=310]
     - {{ compiler('cxx') }}
   host:
-    - cython >=0.29.21,<3.0
-    - numpy 1.20  # [py<310]
-    - numpy       # [py>=310]
     - setuptools >=46.4.0
     - wheel
     - pip
     - python
   run:
-    - dimod >=0.9.11
+    - dwave-samplers >=1.0.0,<2.0.0
     - python
-    - {{ pin_compatible('numpy') }}
 
 test:
   imports:
